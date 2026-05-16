@@ -1,0 +1,26 @@
+/*
+
+Sistema de armazenamento em cache
+
+-> No setor onde trabalho possuímos um site para o controle de mercadorias no estoque local
+
+-> Toda vez que recarregamos o site, ele tem carregar o doom inteiro novamente, consequentemente,
+as informações são perdidas e um custo computacional desnecessário e despendido para o recarregamento inteiro do DOOM
+
+*/
+
+HSET user:1 nomeUser "fulano" senha "1234" cache "https://site.com.br"
+HEXPIRE user:1 60 FIELDS 1 cache
+
+------/ Validação /------
+
+127.0.0.1:6379> HTTL user:1 FIELDS 1 cache
+32
+127.0.0.1:6379> HTTL user:1 FIELDS 1 cache
+-2
+
+/*
+-> Vale ressaltar que na vida real o tempo para a experição do cache seria bem maior
+_> É  importante destacar também que login e senha devem ser passados para um banco de dados relacional,
+devido a necessidade de presistência das informações
+ */

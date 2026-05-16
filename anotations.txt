@@ -1,3 +1,11 @@
+Comandos do docker
+
+-> Subir container:
+    docker compose up -d
+
+-> Abrir terminal:
+    docker compose exec -it redis redis-cli
+
 Comandos do redis:
 
 SET: ALterar, criar UMA chave + seu valor
@@ -5,7 +13,7 @@ GET: Cponsultar uma chave  e seu valor
 
 M ---> Many
 MSET: Cadastrar ou alterar multiplas chaves
-MGET : Consultar Multiplaas chaves
+MGET : Consultar Multiplas chaves
 
 SETNX: Crie se não existir
 STRLEN: Verifica o tamanho de um string
@@ -19,3 +27,17 @@ INCRBY : Soma valores numeriocs
 INCRBYFLOAT: Soma valores numeriocs quando os dados soa FLOAT
 DECRBY: Retira valores
 
+EXPIRE: Define um tempo de expiração para a chave
+PERSIST: Cancela o tempo de expiração e tona a chave "permanente" novamente
+PEXPIRE: Define o tempo de expiração em milisegundos
+
+SCAN: Retorna as chaves criadas (uma espécie de MGET para nomes de chaves)
+
+LPUSH: Criar a adicionar itens à esquerda
+RPUSH: Adiciona itens à direita da lista (Amobos os comandos podem criar listas)
+LRANGE: Verifica o tamnaho da lista
+LLEN: Verificar tamanho da lista
+LINDEX: Busca por itens com base no índice
+LSET: Alterir item na lista 
+LINSERT: Insere item na lista com base em uma elemento. OBS: Ele só aceita texto em AFTER|BEFORE
+LMOVE: Mover itens entre listas
